@@ -1,0 +1,14 @@
+<div *ngIf="order !== undefined">
+  <h2>Order Items:</h2>
+  <div *ngFor="let orderItem of order.orderItems; let count = 'index + 1'">
+    <h3>Product - {{count}}</h3>
+    <p>Name: {{orderItem.name}}</p>
+    <p>Short Description: {{orderItem.shortDescription}}</p>
+    <p>Price: {{orderItem.Price[0].priceValue | number}}</p>
+  </div>
+  <div class="summary">
+    <p>Total Price: {{order.totalProductPrice | number}}</p>
+    <p>Discount: {{-order.adjustment[0].amount}}</p>
+    <p>Grand Total: {{order.grandTotal | number}}</p>
+  </div>
+</div>
